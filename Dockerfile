@@ -11,7 +11,9 @@ RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 COPY ./conf/logstash/logstash.conf /etc/logstash/logstash.conf
 COPY ./conf/logstash/patterns/nginx /opt/logstash/patterns/nginx
+COPY ./conf/logstash/patterns/varnish /opt/logstash/patterns/varnish
 
 RUN mkdir -p /var/log/nginx
+RUN mkdir -p /var/log/varnish
 
-CMD [ "/opt/logstash/bin/logstash", "agent", "-f", "/etc/logstash/logstash.conf", "-l", "/var/log/logstash/logstash.log"]
+CMD [ "/opt/logstash/bin/logstash", "agent", "-f", "/etc/logstash/logstash.conf"]
