@@ -19,10 +19,11 @@ log_format combinedwithservername
 ```
 ## Varnish log
 Varnish logs are read from files in /var/log/varnish
-Example :
+### varnishncsa log format option (-F)
+see: [how to make it works on debian wheezy](http://blog.onetechnical.com/2014/05/02/hacking-up-varnish-logging-on-ubuntu-12-04/)
 ```
-86.220.15.188 - - [23/Feb/2015:14:31:29 +0100] "GET http://dev.petitchevalroux.net/favicon.ico HTTP/1.1" 200 0 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.115 Safari/537.36"
-``
+"%h %l %u %t \"%r\" %s %b \"%{Referer}i\" \"%{User-agent}i\" \"%{Content-type}o\" %D"
+```
 
 Available on:
 * [docker hub](https://registry.hub.docker.com/u/petitchevalroux/logstash/)

@@ -1,2 +1,2 @@
 VARNISHUSER [a-zA-Z\.\@\-\+_%]+
-VARNISHACCESS %{IPORHOST:clientip} %{VARNISHUSER:ident} %{VARNISHUSER:auth} \[%{HTTPDATE:timestamp}\] "%{WORD:verb} %{URIPROTO}://%{IPORHOST:servername}%{URIPATHPARAM:request} HTTP/%{NUMBER:httpversion}" %{NUMBER:response} %{NUMBER:bytes:int} (?:"(?:%{URI:referrer}|-)"|%{QS:referrer}) %{QS:useragent}
+VARNISHACCESS %{IPORHOST:clientip} %{VARNISHUSER:ident} %{VARNISHUSER:auth} \[%{HTTPDATE:timestamp}\] "%{WORD:verb} %{URIPROTO}://%{IPORHOST:servername}%{URIPATHPARAM:request} HTTP/%{NUMBER:httpversion}" %{NUMBER:response} %{NUMBER:bytes:int} (?:"(?:%{URI:referrer}|-)"|%{QS:referrer}) %{QS:useragent}(?: %{QS:contenttype}(?: %{NUMBER:responsetime:int}|)|)
