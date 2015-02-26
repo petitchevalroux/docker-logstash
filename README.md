@@ -15,7 +15,7 @@ log_format combinedwithservername
                 '$remote_addr - $remote_user [$time_local] '
                 '"$request" $status $body_bytes_sent '
                 '"$http_referer" "$http_user_agent" '
-                '$server_name';
+                '$server_name "$sent_http_content_type" $request_time';
 ```
 ## Varnish log
 Varnish logs are read from files in /var/log/varnish
